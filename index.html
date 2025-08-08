@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="./output.css" rel="stylesheet">
+</head>
+<body class="m-0 p-0 bg-neutral-800 flex flex-col justify-center items-center">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body {
+font-family: "Poppins", sans-serif;
+}
+</style>
+<!-- npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch -->
+<br>
+
+ <h1 class="text-center text-white text-[30px] font-medium m-[5px]">Calculator</h1>
+
+<input class="inp w-[380px] h-[120px] border-[1px] rounded-[10px] bg-black text-white font-sans text-[30px] pl-1 border-black" readonly>
+<div class="grid grid-cols-4 justify-self-center justify-items-center w-[380px] border-[1px] bg-gray-200 border-gray-200 rounded-[10px] p-[7px]">
+  <button class="btn border-[1px] bg-gray-500 text-white p-[7px] w-[70px] h-[70px] rounded-[50%] text-[40px] text-center cursor-pointer hover:bg-gray-600 transition-all duration-300" onclick="display('0')">0</button>
+  <button class="btn border-[1px] bg-gray-500 text-white p-[7px] w-[70px] h-[70px] rounded-[50%] text-[40px] text-center cursor-pointer hover:bg-gray-600 transition-all duration-300" onclick="display('1')">1</button>
+  <button class="btn border-[1px] bg-gray-500 text-white p-[7px] w-[70px] h-[70px] rounded-[50%] text-[40px] text-center cursor-pointer hover:bg-gray-600 transition-all duration-300" onclick="display('2')">2</button>
+  <button class="btn border-[1px] bg-gray-500 text-white p-[7px] w-[70px] h-[70px] rounded-[50%] text-[40px] text-center cursor-pointer hover:bg-gray-600 transition-all duration-300" onclick="display('3')">3</button>
+  <button class="btn border-[1px] bg-gray-500 text-white p-[7px] w-[70px] h-[70px] rounded-[50%] text-[40px] text-center cursor-pointer hover:bg-gray-600 transition-all duration-300" onclick="display('4')">4</button>
+  <button class="btn border-[1px] bg-gray-500 text-white p-[7px] w-[70px] h-[70px] rounded-[50%] text-[40px] text-center cursor-pointer hover:bg-gray-600 transition-all duration-300" onclick="display('5')">5</button>
+  <button class="btn border-[1px] bg-gray-500 text-white p-[7px] w-[70px] h-[70px] rounded-[50%] text-[40px] text-center cursor-pointer hover:bg-gray-600 transition-all duration-300" onclick="display('6')">6</button>
+  <button class="btn border-[1px] bg-gray-500 text-white p-[7px] w-[70px] h-[70px] rounded-[50%] text-[40px] text-center cursor-pointer hover:bg-gray-600 transition-all duration-300" onclick="display('7')">7</button>
+  <button class="btn border-[1px] bg-gray-500 text-white p-[7px] w-[70px] h-[70px] rounded-[50%] text-[40px] text-center cursor-pointer hover:bg-gray-600 transition-all duration-300" onclick="display('8')">8</button>
+  <button class="btn border-[1px] bg-gray-500 text-white p-[7px] w-[70px] h-[70px] rounded-[50%] text-[40px] text-center cursor-pointer hover:bg-gray-600 transition-all duration-300" onclick="display('9')">9</button>
+  <button class="btn border-[1px] bg-gray-500 text-white p-[7px] w-[70px] h-[70px] rounded-[50%] text-[40px] text-center cursor-pointer hover:bg-gray-600 transition-all duration-300" onclick="display('+')">+</button>
+  <button class="btn border-[1px] bg-gray-500 text-white p-[7px] w-[70px] h-[70px] rounded-[50%] text-[40px] text-center cursor-pointer hover:bg-gray-600 transition-all duration-300" onclick="display('-')">-</button>
+  <button class="btn border-[1px] bg-gray-500 text-white p-[7px] w-[70px] h-[70px] rounded-[50%] text-[40px] text-center cursor-pointer hover:bg-gray-600 transition-all duration-300" onclick="display('*')">*</button>
+  <button class="btn border-[1px] bg-gray-500 text-white p-[7px] w-[70px] h-[70px] rounded-[50%] text-[40px] text-center cursor-pointer hover:bg-gray-600 transition-all duration-300" onclick="display('/')">/</button>
+  <button class="btn border-[1px] bg-gray-500 text-white p-[7px] w-[70px] h-[70px] rounded-[50%] text-[40px] text-center cursor-pointer hover:bg-gray-600 transition-all duration-300" onclick="Cleardisplay('C')">C</button>
+  <button class="btn border-[1px] bg-gray-500 text-white p-[7px] w-[70px] h-[70px] rounded-[50%] text-[40px] text-center cursor-pointer hover:bg-gray-600 transition-all duration-300" onclick="Clacultaion('=')">=</button>
+</div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Result showind DIv -->
+<div class="mainConta absolute top-[35%] left-1 md:left-[40%] hidden">
+  <div class="w-[380px] h-auto border-[1px] bg-violet-500 flex flex-col justify-center items-center rounded-2xl shadow-2xl p-4 border-violet-500 transition-all ">
+    <img src="" alt="" class="imagOFjuice object-cover w-[200px] h-[200px] rounded-[10px] p-[5px] shadow-md">
+    <h1 class="text1 text-center text-white pt-[5px] text-[20px] font-semibold tracking-wide">Juice Name</h1>
+    <h1 class="text2 text-center text-white pt-[5px] text-[16px] font-light italic">Short Description</h1>
+    <button class="closeBtn border-[1px] text-white p-[7px] rounded-[10px] text-[16px] font-medium cursor-pointer bg-red-500 border-red-500 mt-4 hover:bg-red-600 transition w-[100px]">Close</button>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://unpkg.com/scrollreveal"></script>
+    <script src="script.js"></script>
+</body>
+</html>
